@@ -1,22 +1,63 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+  </body>
+  <Footer />
+  <style is:global>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Epilogue', sans-serif;
+    }
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+    h1 {
+    weight: 700;
+    font-size: 44px;
+    margin-bottom: 80px;
+  }
+
+    p {
+      line-height: 24px;
+    }
+
+    pre {
+      padding: 16px;
+      border-radius: 5px;
+    }
+    
+    * {
+      box-sizing: border-box;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    :root {
+      --primary: #402eff;
+      --secondary: #f8f9ff;
+      --white: #ffffff;
+      --dark: #21243d;
+      --light: #8695a4;
+      --random: #f7f7f7;
+    }
+  </style>
+</html>

@@ -1,0 +1,88 @@
+---
+import { getCollection } from "astro:content";
+import ButtonLink from "../components/ButtonLink.astro";
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import HorizontalSeparator from "../components/HorizontalSeparator.astro";
+
+const projects = await getCollection("project");
+---
+
+<Layout title="Projects">
+  <Section>
+    <h1>My Projects</h1>
+    {
+      projects.map(project => (
+        <div class="card">
+          <img src={project.data.image} alt={project.data.title} />
+          <div>
+            <h3>
+                {project.data.title}
+            </h3>
+            <p class="description">{project.data.description}</p>
+            <div class="button-container">
+              <ButtonLink
+                href={`${project.data.githubURL}`}
+                text="View on Github"
+                variant="secondary"
+              />
+              <ButtonLink
+                href={`${project.data.liveSiteURL}`}
+                text="View Live"
+              />
+            </div>
+          </div>
+        </div>
+          <HorizontalSeparator/>
+      ))
+    }
+  </Section>
+</Layout>
+<style>
+
+  .card {
+    overflow: hidden;
+    display: flex;
+    gap: 40px;
+
+    h3{
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      margin-bottom: 40px;
+    }
+
+    img {
+      height: 200px;
+      width: 200px;
+      object-fit: cover;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    
+    @media (max-width: 800px) {
+      & {
+        flex-direction: column;
+      }
+
+      img {
+        align-self: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .button-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+</style>

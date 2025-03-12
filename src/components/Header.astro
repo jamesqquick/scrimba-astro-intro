@@ -1,0 +1,80 @@
+---
+import ButtonLink from './ButtonLink.astro';
+import Section from './Section.astro';
+---
+
+<Section>
+  <header id="header">
+    <div class="content">
+      <h1>
+        <span>Hi, I am Astra.</span>
+          <span><span class="accent">Full-stack</span> Specialist!</span>
+      </h1>
+      <p class="description">
+        I’m a Full-Stack Developer specializing in React.js, Next.js, Node.js,
+        and database management. I build scalable, high-performance web
+        applications, robust back-end architecture, and efficient API
+        integrations.
+      </p>
+      <div class="button-container">
+        <ButtonLink href="/projects" text="View projects" variant='secondary' />
+        <ButtonLink href="/resume.pdf" text="Download resume" isDownload={true}/>
+      </div>
+    </div>
+    <img src="/images/me.png" />
+  </header>
+</Section>
+
+<style>
+  #header {
+    display: grid;
+    grid-template-columns: 540px 1fr;
+    justify-items: center;
+    gap: 80px;
+    align-items: center;
+
+    h1 {
+      font-size: 44px;
+      display: flex;
+      flex-direction: column;
+
+      p {
+        margin: 0px;
+        margin-bottom: 4px;
+      }
+
+      .accent {
+        color: var(--primary);
+      }
+    }
+
+    .button-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    .description {
+      line-height: 28px;
+      color: var(--dark);
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 1000px) {
+      & {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 40px;
+
+        img {
+          grid-row: 1;
+        }
+      }
+    }
+
+    @media (max-width: 600px) {
+      .button-container {
+        flex-direction: column;
+      }
+    }
+  }
+</style>

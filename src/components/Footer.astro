@@ -1,0 +1,48 @@
+---
+import Section from './Section.astro'
+---
+<Section dark={true}>
+    <footer>
+            <div class="icons-container">
+                <a href="#"><img src="/images/icons/email.svg" alt="Email icon" /></a>
+                <a href="#"><img src="/images/icons/github.svg" alt="Github icon" /></a>
+                <a href="#"><img src="/images/icons/x.svg" alt="X icon" /></a>
+                <a href="#"><img src="/images/icons/linkedin.svg" alt="Linkedin icon" /></a>
+            </div>
+            <p class="rights-text">Copyright © 2025 Astra All rights reserved</p>
+            <p class="credit-text">Images: Flaticon.com</p>
+    </footer>
+</Section>
+
+<style>
+    footer {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .icons-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .credit-text{
+            color: var(--light);
+            margin-top: 8px;
+            font-size: 14px
+        }
+
+        @media screen and (max-width: 500px) {
+
+            .icons-container {
+                flex-direction: column;
+                gap: 4px;
+                img {
+                    height: 20px;;
+                }
+            }
+            
+        }
+    }
+</style>

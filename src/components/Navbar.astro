@@ -1,0 +1,56 @@
+---
+import Container from "./Container.astro";
+---
+
+<nav class="nav">
+  <Container>
+    <div class="nav-container">
+
+      <div>
+        <a href="/"><img src="/images/ASTRA.svg" alt="Astra" /></a>
+      </div>
+      <ul class="nav-items">
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </Container>
+</nav>
+
+<style>
+  nav {
+    background: var(--secondary);
+
+    img {
+      height: 20px;
+    }
+
+    .nav-container {
+      display: flex;
+      padding: 24px 0;
+      justify-content: space-between;
+      align-items: center;
+
+      .nav-items {
+        list-style-type: none;
+        display: flex;
+        gap: 24px;
+
+        a {
+          text-decoration: none;
+          color: var(--dark);
+          font-size: 18px;
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        & {
+          flex-direction: column;
+          gap: 16px;
+        }
+        
+      }
+    }
+  }
+</style>
