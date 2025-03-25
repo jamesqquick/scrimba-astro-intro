@@ -1,9 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import ButtonLink from "../components/ButtonLink.astro";
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
-import HorizontalSeparator from "../components/horizontalSeparator.astro";
+import HorizontalSeparator from "../components/HorizontalSeparator.astro";
 import BlogCard from "../components/BlogCard.astro";
 
 const posts = await getCollection("blog");
@@ -14,7 +13,7 @@ const posts = await getCollection("blog");
     <h1>Blog</h1>
     {
       posts.map((blog) => (
-            <BlogCard blog={blog}/>
+          <BlogCard blog={blog}/>
           <HorizontalSeparator/>
       ))
     }
